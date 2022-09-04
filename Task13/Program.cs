@@ -9,11 +9,7 @@ Console.WriteLine("Введите натуральное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 int result = 0;
 
-if (number < 100)
-{
-    Console.WriteLine("Третьей цифры нет");
-}
-else if (number > 999)
+if (number > 999) 
 {
     while (number > 999)
     {
@@ -25,8 +21,29 @@ else if (number > 999)
         }
     }
 }
-else 
+else if (number < -999) 
+{
+    while (number < -999)
+    {
+        number /= 10;
+        if ((number < -99) && (number > -1000))
+        {
+            result = number % 10;
+            Console.WriteLine(-result);
+        }
+    }
+}
+else if ((number < 100) && (number >-100))
+{
+    Console.WriteLine("Третьей цифры нет");
+}
+else if ((number > 99) && (number < 1000))
 {
     result = number % 10;
     Console.WriteLine(result);
+}
+else 
+{
+    result = number % 10;
+    Console.WriteLine(-result);
 }

@@ -3,7 +3,7 @@
 
 Console.Clear();
 
-double[] CreateArrayRndInt(int size, int min, int max)
+double[] CreateArrayRndDouble(int size, int min, int max)
 {
     double[] array = new double[size];
     Random rnd = new Random();

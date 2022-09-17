@@ -10,7 +10,7 @@ double[] CreateArrayRndInt(int size, int min, int max)
     for (int i = 0; i < size; i++)
     {
         array[i] = rnd.NextDouble() * (max - min) + min;
-        array[i] = Math.Round(array[i], 2);
+        array[i] = Math.Round(array[i], 1);
     }
     return array;
 }
@@ -26,7 +26,7 @@ void PrintArray(double[] array)
     Console.WriteLine("]");
 }
 
-void DiffMaxMin(double[] array)
+double DiffMaxMin(double[] array)
 {
     double result = 0;
     double max = array[0];
@@ -37,9 +37,10 @@ void DiffMaxMin(double[] array)
         if (array[i] < min) min = array[i];
     }
     result = max - min;
-    Console.WriteLine(result);
+    return result;
 }
 
-double[] arr = CreateArrayRndInt(10, -10, 10);
+double[] arr = CreateArrayRndInt(10, 0, 100);
 PrintArray(arr);
-DiffMaxMin(arr);
+double result = Math.Round(DiffMaxMin(arr), 1);
+Console.WriteLine(result);

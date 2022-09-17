@@ -26,16 +26,17 @@ void PrintArray(int[] array)
     Console.WriteLine("]");
 }
 
-void PositiveNumber(int[] array)
+int PositiveNumber(int[] array)
 {
     int result = 0;
     for (int i = 0; i < array.Length; i++)
     {
         if (i % 2 == 1) result += array[i];
     }
-    Console.WriteLine(result);
+    return result;
 }
 
 int[] arr = CreateArrayRndInt(10, -100, 100);
 PrintArray(arr);
-PositiveNumber(arr);
+int result =PositiveNumber(arr);
+Console.WriteLine(result);

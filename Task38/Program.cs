@@ -40,7 +40,7 @@ double DiffMaxMin(double[] array)
     return result;
 }
 
-double[] arr = CreateArrayRndInt(10, 0, 100);
+double[] arr = CreateArrayRndDouble(10, 0, 100);
 PrintArray(arr);
 double result = Math.Round(DiffMaxMin(arr), 1);
 Console.WriteLine(result);

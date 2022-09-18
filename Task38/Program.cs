@@ -26,21 +26,35 @@ void PrintArray(double[] array)
     Console.WriteLine("]");
 }
 
-double DiffMaxMin(double[] array)
+double FindMax(double[] array)
 {
-    double result = 0;
     double max = array[0];
-    double min = array[0];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i] > max) max = array[i];
+    }
+    return max;
+}
+
+double FindMin(double[] array)
+{
+    double min = array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
         if (array[i] < min) min = array[i];
     }
-    result = max - min;
+    return min;
+}
+
+double DiffMaxMin(double max1, double min1)
+{
+    double result = max1 - min1;
     return result;
 }
 
 double[] arr = CreateArrayRndDouble(10, 0, 100);
 PrintArray(arr);
-double result = Math.Round(DiffMaxMin(arr), 1);
-Console.WriteLine(result);
+double max = FindMax(arr);
+double min = FindMin(arr);
+double result = Math.Round(DiffMaxMin(max, min), 1);
+Console.WriteLine($"Разница между Max и Min равна: {result}");

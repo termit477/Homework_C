@@ -2,6 +2,7 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
+
 Console.Clear();
 
 Console.Write("Введите количество вводимых элементов: ");
@@ -18,6 +19,7 @@ int[] CreateArray(int size1)
     }
     return array;
 }
+
 int PositiveNumber(int[] array)
 {
     int result = 0;
@@ -27,6 +29,7 @@ int PositiveNumber(int[] array)
     }
     return result;
 }
+
 int[] arr = CreateArray(size);
 int result = PositiveNumber(arr);
 Console.WriteLine($"Количество положительных чисел: {result}");

@@ -1,10 +1,12 @@
-﻿// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
-// и возвращает значение этого элемента или же указание, что такого элемента нет.
+﻿// Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
 // Например, задан массив:
 // 1 4 7 2
 // 5 9 2 3
 // 8 4 2 4
-// 1, 7 -> такого элемента в массиве нет
+// В итоге получается вот такой массив:
+// 7 4 2 1
+// 9 5 3 2
+// 8 4 4 2
 
 Console.Clear();
 
@@ -36,19 +38,26 @@ void PrintMatrix(int[,] matr)
     Console.WriteLine();
 }
 
-void FindNumber(int[,] matr, int a, int b)
+void SortMatrix(int[,] matr)
 {
-    if ((matr.GetLength(0) > a) || (matr.GetLength(1) > b)) Console.WriteLine(matr[a, b]);
-    else Console.WriteLine("Такого элемента в массиве нет");
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 1; j < matr.GetLength(1); j++)
+        {
+            int count = matr[i, j];
+            int k = j;
+            while ((k > 0) && (matr[i, k - 1] < count))
+            {
+                matr[i, k] = matr[i, k - 1];
+                k--;
+            }
+            matr[i, k] = count;
+        }
+    }
 }
 
 int[,] matrix = CreateMatrix(5, 5, 0, 10);
 PrintMatrix(matrix);
 
-Console.WriteLine("Введите позиции числа в массиве.");
-Console.Write("i: ");
-int i = Convert.ToInt32(Console.ReadLine());
-Console.Write("j: ");
-int j = Convert.ToInt32(Console.ReadLine());
-
-FindNumber(matrix, i, j);
+SortMatrix(matrix);
+PrintMatrix(matrix);
